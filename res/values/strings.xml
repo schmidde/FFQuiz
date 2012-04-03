@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, FFGameActivity!</string>
+    <string name="app_name">FFGame</string>
+    <string name="tv_start">Hallo Kamerad, wähle deinen Schwierigkeitsgrad. Viel Glück beim Beantworten der Fragen und gut Schlauch!</string>
+	<string name="rb_jf">Jugendfeuerwehr</string>
+	<string name="rb_tm">Truppmann</string>
+	<string name="rb_tf">Truppführer</string>
+	<string name="rb_gf">Gruppenführer</string>
+	<string name="btn_los">LOS!</string>
+</resources>

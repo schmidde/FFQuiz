@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_start"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <RadioGroup
+        android:id="@+id/rg_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+	
+        <RadioButton
+            android:id="@+id/rb_jf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/rb_jf" />
+        
+        <RadioButton
+            android:id="@+id/rb_tm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/rb_tm" />
+
+        <RadioButton
+            android:id="@+id/rb_tf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rb_tf" />
+
+        <RadioButton
+            android:id="@+id/rb_gf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rb_gf" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btn_los"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_los" />
+
+</LinearLayout>
