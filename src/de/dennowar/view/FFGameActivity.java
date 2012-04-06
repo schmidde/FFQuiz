@@ -1,6 +1,7 @@
 package de.dennowar.view;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import de.dennowar.R;
@@ -21,11 +22,12 @@ import android.util.Log;
 
 public class FFGameActivity extends Activity {
     /** Called when the activity is first created. */
+	private int pos, runde = 0;
 	private Context ctx = this;
 	private DataBaseHelper mAdapter;
 	private Cursor c;
 	private String antwort = null;
-	private List<Integer> list;
+	private List<Integer> list = new ArrayList<Integer>();
 	
 	TextView tv;
 	RadioButton rba;
@@ -47,7 +49,7 @@ public class FFGameActivity extends Activity {
 			mAdapter.openDataBase();
 			
 			c = mAdapter.fetchQuestions(1);
-			c.moveToPosition(getRandPos(c.getCount()));
+			c.moveToPosition(pos = getRandPos(c.getCount()));
 			
 			tv = (TextView) findViewById(R.id.tv_frage);
 			rba = (RadioButton) findViewById(R.id.rb_a);
@@ -57,7 +59,7 @@ public class FFGameActivity extends Activity {
 			rg_antwort = (RadioGroup) findViewById(R.id.rg_antwort);
 			btn_antwort = (Button) findViewById(R.id.btn_antwort);
 			
-			tv.setText(c.getString(c.getColumnIndex("frage")));
+			tv.setText((runde+1)+". "+c.getString(c.getColumnIndex("frage")));
 			rba.setText(c.getString(c.getColumnIndex("a")));
 			rbb.setText(c.getString(c.getColumnIndex("b")));
 			rbc.setText(c.getString(c.getColumnIndex("c")));
@@ -91,33 +93,31 @@ public class FFGameActivity extends Activity {
 				@Override
 				public void onClick(View v) {
 									
-					if(c.getString(c.getColumnIndex("richtig")).equals(antwort)){
+					if(c.getString(c.getColumnIndex("richtig")).equals(antwort) && (runde < 15)){
+						runde++;
 						Log.i("Richtig: ", antwort);
-						if(c.moveToPosition(getRandPos(c.getCount()))){
+						
+						while(isNotNew(pos = getRandPos(c.getCount()))){}
+						
+						if(c.moveToPosition(pos)){
 							
 							rg_antwort.clearCheck();
-							tv.setText(c.getString(c.getColumnIndex("frage")));
+							tv.setText((runde+1)+". "+c.getString(c.getColumnIndex("frage")));
 							rba.setText(c.getString(c.getColumnIndex("a")));
 							rbb.setText(c.getString(c.getColumnIndex("b")));
 							rbc.setText(c.getString(c.getColumnIndex("c")));
 							rbd.setText(c.getString(c.getColumnIndex("d")));
-							
 						}
-						else {Log.w("Oh oh, moveToPosition ist false", ""); c.moveToFirst();}
+						else {Log.w("Oh oh, moveToPosition ist -1", ""); c.moveToFirst();}
 					}
 					else{
 						Log.i("Anwort ist falsch: ", antwort);
 						CharSequence s = "Falsche Antwort! Versuchs nochmal.";
 						Toast t = Toast.makeText(ctx, s, Toast.LENGTH_SHORT);
 						t.show();
-						Log.i("Zufall: ", ""+getRandPos(c.getCount()));
-					}
-						
-					
+					}		
 				}
-			});
-			
-			
+			});		
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -131,13 +131,17 @@ public class FFGameActivity extends Activity {
  
     	return i;
     }
-    private boolean isNotNew(int _id){
+    private boolean isNotNew(int position){
     	boolean res = false;
     	
-    	if(list.contains(_id)){
+    	if(list.contains(position)){
+    		Log.i("bereits vorhanden: ", ""+position);
     		res = true;
     	}
-    	else list.add(_id);
+    	else {
+    		Log.i("NEU: ", ""+position);
+    		list.add(position);
+    	}
     	return res;
     }
 }
