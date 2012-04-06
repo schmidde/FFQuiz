@@ -1,7 +1,6 @@
 package de.dennowar.view;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import de.dennowar.R;
@@ -26,6 +25,7 @@ public class FFGameActivity extends Activity {
 	private DataBaseHelper mAdapter;
 	private Cursor c;
 	private String antwort = null;
+	private List<Integer> list;
 	
 	TextView tv;
 	RadioButton rba;
@@ -47,6 +47,7 @@ public class FFGameActivity extends Activity {
 			mAdapter.openDataBase();
 			
 			c = mAdapter.fetchQuestions(1);
+			c.moveToPosition(getRandPos(c.getCount()));
 			
 			tv = (TextView) findViewById(R.id.tv_frage);
 			rba = (RadioButton) findViewById(R.id.rb_a);
@@ -89,10 +90,10 @@ public class FFGameActivity extends Activity {
 				
 				@Override
 				public void onClick(View v) {
-										
+									
 					if(c.getString(c.getColumnIndex("richtig")).equals(antwort)){
 						Log.i("Richtig: ", antwort);
-						if(c.moveToNext()){
+						if(c.moveToPosition(getRandPos(c.getCount()))){
 							
 							rg_antwort.clearCheck();
 							tv.setText(c.getString(c.getColumnIndex("frage")));
@@ -102,14 +103,17 @@ public class FFGameActivity extends Activity {
 							rbd.setText(c.getString(c.getColumnIndex("d")));
 							
 						}
-						else c.moveToFirst();
+						else {Log.w("Oh oh, moveToPosition ist false", ""); c.moveToFirst();}
 					}
 					else{
-						Log.i("Falsch: ", antwort);
+						Log.i("Anwort ist falsch: ", antwort);
 						CharSequence s = "Falsche Antwort! Versuchs nochmal.";
 						Toast t = Toast.makeText(ctx, s, Toast.LENGTH_SHORT);
 						t.show();
-					}					
+						Log.i("Zufall: ", ""+getRandPos(c.getCount()));
+					}
+						
+					
 				}
 			});
 			
@@ -118,5 +122,22 @@ public class FFGameActivity extends Activity {
 			e.printStackTrace();
 		}
         
+    }
+    private int getRandPos(int count){
+    	double d = Math.random();
+    	d = d*100;
+    	d= d/(100/count);
+    	int i = (int)d;
+ 
+    	return i;
+    }
+    private boolean isNotNew(int _id){
+    	boolean res = false;
+    	
+    	if(list.contains(_id)){
+    		res = true;
+    	}
+    	else list.add(_id);
+    	return res;
     }
 }
