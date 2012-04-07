@@ -29,18 +29,26 @@ public class FFGameActivity extends Activity {
 	private String antwort = null;
 	private List<Integer> list = new ArrayList<Integer>();
 	
-	TextView tv;
-	RadioButton rba;
-	RadioButton rbb;
-	RadioButton rbc;
-	RadioButton rbd;
-	RadioGroup rg_antwort;
-	Button btn_antwort;
+	private TextView tv_frage;
+	private RadioButton rba;
+	private RadioButton rbb;
+	private RadioButton rbc;
+	private RadioButton rbd;
+	private RadioGroup rg_antwort;
+	private Button btn_antwort;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        
+        tv_frage = (TextView) findViewById(R.id.tv_frage);
+		rba = (RadioButton) findViewById(R.id.rb_a);
+		rbb = (RadioButton) findViewById(R.id.rb_b);
+		rbc = (RadioButton) findViewById(R.id.rb_c);
+		rbd = (RadioButton) findViewById(R.id.rb_d);
+		rg_antwort = (RadioGroup) findViewById(R.id.rg_antwort);
+		btn_antwort = (Button) findViewById(R.id.btn_antwort);
         
         mAdapter = new DataBaseHelper(this);
         
@@ -48,18 +56,12 @@ public class FFGameActivity extends Activity {
 			mAdapter.createDataBase();
 			mAdapter.openDataBase();
 			
+			pos = getRandPos(c.getCount());
 			c = mAdapter.fetchQuestions(1);
-			c.moveToPosition(pos = getRandPos(c.getCount()));
 			
-			tv = (TextView) findViewById(R.id.tv_frage);
-			rba = (RadioButton) findViewById(R.id.rb_a);
-			rbb = (RadioButton) findViewById(R.id.rb_b);
-			rbc = (RadioButton) findViewById(R.id.rb_c);
-			rbd = (RadioButton) findViewById(R.id.rb_d);
-			rg_antwort = (RadioGroup) findViewById(R.id.rg_antwort);
-			btn_antwort = (Button) findViewById(R.id.btn_antwort);
-			
-			tv.setText((runde+1)+". "+c.getString(c.getColumnIndex("frage")));
+			c.moveToPosition(pos);
+						
+			tv_frage.setText((runde+1)+". "+c.getString(c.getColumnIndex("frage")));
 			rba.setText(c.getString(c.getColumnIndex("a")));
 			rbb.setText(c.getString(c.getColumnIndex("b")));
 			rbc.setText(c.getString(c.getColumnIndex("c")));
@@ -102,7 +104,7 @@ public class FFGameActivity extends Activity {
 						if(c.moveToPosition(pos)){
 							
 							rg_antwort.clearCheck();
-							tv.setText((runde+1)+". "+c.getString(c.getColumnIndex("frage")));
+							tv_frage.setText((runde+1)+". "+c.getString(c.getColumnIndex("frage")));
 							rba.setText(c.getString(c.getColumnIndex("a")));
 							rbb.setText(c.getString(c.getColumnIndex("b")));
 							rbc.setText(c.getString(c.getColumnIndex("c")));
@@ -123,6 +125,11 @@ public class FFGameActivity extends Activity {
 		}
         
     }
+    
+    public void show(){
+		
+	}
+    
     private int getRandPos(int count){
     	double d = Math.random();
     	d = d*100;
