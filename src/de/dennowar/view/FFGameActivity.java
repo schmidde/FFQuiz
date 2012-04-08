@@ -81,6 +81,8 @@ public class FFGameActivity extends Activity {
 					case R.id.rb_d:
 						antwort = "d";
 						break;
+					default:
+						antwort = "e";	
 					}
 				}
 			});
@@ -122,6 +124,7 @@ public class FFGameActivity extends Activity {
 		rbb.setText(c.getString(c.getColumnIndex("b")));
 		rbc.setText(c.getString(c.getColumnIndex("c")));
 		rbd.setText(c.getString(c.getColumnIndex("d")));
+		antwort = null;
 		runde++;
 	}
     
