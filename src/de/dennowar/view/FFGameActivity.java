@@ -8,6 +8,7 @@ import de.dennowar.R;
 import de.dennowar.db.DataBaseHelper;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -104,7 +105,7 @@ public class FFGameActivity extends Activity {
 						}
 					}
 					//Spiel zu Ende
-					else{}
+					else{ startActivity(new Intent(FFGameActivity.this, WinActivity.class));}
 				}
 			});		
 		} catch (IOException e) {

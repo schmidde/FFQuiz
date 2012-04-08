@@ -18,25 +18,25 @@
 
         <RadioButton
             android:id="@+id/rb_a"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Antwort A" />
         
 		<RadioButton
-            android:id="@+id/rb_b"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Antwort B" />
+		    android:id="@+id/rb_b"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:text="Antwort B" />
 		
         <RadioButton
             android:id="@+id/rb_c"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Antwort C" />
 
         <RadioButton
             android:id="@+id/rb_d"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Antwort D" />
     </RadioGroup>
