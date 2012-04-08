@@ -22,7 +22,7 @@ import android.util.Log;
 
 public class FFGameActivity extends Activity {
     /** Called when the activity is first created. */
-	private int pos, runde = 0;
+	private int pos, runde = 1;
 	private Context ctx = this;
 	private DataBaseHelper mAdapter;
 	private Cursor c;
@@ -56,23 +56,17 @@ public class FFGameActivity extends Activity {
 			mAdapter.createDataBase();
 			mAdapter.openDataBase();
 			
-			pos = getRandPos(c.getCount());
 			c = mAdapter.fetchQuestions(1);
-			
+			pos = getRandPos(c.getCount());
 			c.moveToPosition(pos);
 						
-			tv_frage.setText((runde+1)+". "+c.getString(c.getColumnIndex("frage")));
-			rba.setText(c.getString(c.getColumnIndex("a")));
-			rbb.setText(c.getString(c.getColumnIndex("b")));
-			rbc.setText(c.getString(c.getColumnIndex("c")));
-			rbd.setText(c.getString(c.getColumnIndex("d")));
+			show();
 			
 			rg_antwort.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 				
 				@Override
 				public void onCheckedChanged(RadioGroup group, int checkedId) {
-					// TODO Auto-generated method stub
-					Log.i("Checked: ", ""+checkedId);
+					
 					switch(checkedId){
 					case R.id.rb_a:
 						antwort = "a";
@@ -87,37 +81,30 @@ public class FFGameActivity extends Activity {
 						antwort = "d";
 						break;
 					}
-					Log.i("Antwort: ", antwort);
 				}
 			});
 			btn_antwort.setOnClickListener(new OnClickListener() {
 				
 				@Override
 				public void onClick(View v) {
-									
-					if(c.getString(c.getColumnIndex("richtig")).equals(antwort) && (runde < 15)){
-						runde++;
-						Log.i("Richtig: ", antwort);
-						
-						while(isNotNew(pos = getRandPos(c.getCount()))){}
-						
-						if(c.moveToPosition(pos)){
+					
+					if(runde <= 15){
+						if(isRight()){
+													
+							pos = nextPosition();
 							
-							rg_antwort.clearCheck();
-							tv_frage.setText((runde+1)+". "+c.getString(c.getColumnIndex("frage")));
-							rba.setText(c.getString(c.getColumnIndex("a")));
-							rbb.setText(c.getString(c.getColumnIndex("b")));
-							rbc.setText(c.getString(c.getColumnIndex("c")));
-							rbd.setText(c.getString(c.getColumnIndex("d")));
+							if(c.moveToPosition(pos)){ show();}
+							else { c.moveToFirst();}
 						}
-						else {Log.w("Oh oh, moveToPosition ist -1", ""); c.moveToFirst();}
+						//falsch Antwort
+						else{
+							CharSequence s = "Falsche Antwort! Versuchs nochmal.";
+							Toast t = Toast.makeText(ctx, s, Toast.LENGTH_SHORT);
+							t.show();
+						}
 					}
-					else{
-						Log.i("Anwort ist falsch: ", antwort);
-						CharSequence s = "Falsche Antwort! Versuchs nochmal.";
-						Toast t = Toast.makeText(ctx, s, Toast.LENGTH_SHORT);
-						t.show();
-					}		
+					//Spiel zu Ende
+					else{}
 				}
 			});		
 		} catch (IOException e) {
@@ -127,8 +114,24 @@ public class FFGameActivity extends Activity {
     }
     
     public void show(){
-		
+    	
+    	rg_antwort.clearCheck();
+		tv_frage.setText(runde+". "+c.getString(c.getColumnIndex("frage")));
+		rba.setText(c.getString(c.getColumnIndex("a")));
+		rbb.setText(c.getString(c.getColumnIndex("b")));
+		rbc.setText(c.getString(c.getColumnIndex("c")));
+		rbd.setText(c.getString(c.getColumnIndex("d")));
+		runde++;
 	}
+    
+    private boolean isRight(){
+    	boolean res = false;
+    	if(c.getString(c.getColumnIndex("richtig")).equals(antwort)){
+    		res = true;
+    	}
+    	
+    	return res;
+    }
     
     private int getRandPos(int count){
     	double d = Math.random();
@@ -138,6 +141,13 @@ public class FFGameActivity extends Activity {
  
     	return i;
     }
+    
+    private int nextPosition(){
+    	int position = 0;
+    	while(isNotNew(position = getRandPos(c.getCount()))){}
+    	return position;
+    }
+    
     private boolean isNotNew(int position){
     	boolean res = false;
     	
