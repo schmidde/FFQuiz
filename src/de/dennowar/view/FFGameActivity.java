@@ -59,6 +59,7 @@ public class FFGameActivity extends Activity {
 			
 			c = mAdapter.fetchQuestions(1);
 			pos = getRandPos(c.getCount());
+			list.add(pos);
 			c.moveToPosition(pos);
 						
 			show();
@@ -97,7 +98,7 @@ public class FFGameActivity extends Activity {
 							pos = nextPosition();
 							
 							if(c.moveToPosition(pos)){ show();}
-							else { c.moveToFirst();}
+							else { Log.i("Wertebereich überschritten: ", ""+pos);}
 						}
 						//falsch Antwort
 						else{
@@ -131,6 +132,7 @@ public class FFGameActivity extends Activity {
     private boolean isRight(){
     	boolean res = false;
     	if(c.getString(c.getColumnIndex("richtig")).equals(antwort)){
+    		Log.i("isRight ", "Antwort: "+antwort+" Richtig: "+c.getString(c.getColumnIndex("richtig")));
     		res = true;
     	}
     	
@@ -138,17 +140,19 @@ public class FFGameActivity extends Activity {
     }
     
     private int getRandPos(int count){
-    	double d = Math.random();
-    	d = d*100;
+    	double r = Math.random();
+    	double d = r*100;
     	d= d/(100/count);
     	int i = (int)d;
- 
+    	if(i >= count){ i = getRandPos(count);}
+    	Log.i("getRandPos: ", "Random: "+r+" double: "+d+" int: "+i);
     	return i;
     }
     
     private int nextPosition(){
     	int position = 0;
     	while(isNotNew(position = getRandPos(c.getCount()))){}
+    	Log.i("nextPosition: ", ""+position);
     	return position;
     }
     
