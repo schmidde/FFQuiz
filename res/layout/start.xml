@@ -8,8 +8,15 @@
         android:id="@+id/tv_start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="5dip"
         android:text="@string/tv_start"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:layout_below="@+id/tv_frage_nr"
+        android:background="#77EEEEEE" />
 
     <RadioGroup
         android:id="@+id/rg_start"
@@ -43,6 +50,12 @@
             android:text="@string/rb_gf" />
     </RadioGroup>
 
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:layout_below="@+id/tv_frage_nr"
+        android:background="#77EEEEEE" />
+    
     <Button
         android:id="@+id/btn_los"
         android:layout_width="match_parent"

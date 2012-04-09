@@ -28,6 +28,7 @@ public class FFGameActivity extends Activity {
 	private Context ctx = this;
 	private DataBaseHelper mAdapter;
 	private Cursor c;
+	private int grad;
 	private String antwort = null;
 	private List<Integer> list = new ArrayList<Integer>();
 	
@@ -45,6 +46,9 @@ public class FFGameActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         ActivityRegistry.register(this);
+        
+        grad = getIntent().getIntExtra("de.dennowar.view.grad", 1);
+        Log.i("Grad: ", ""+grad);
         
         tv_frage_nr = (TextView) findViewById(R.id.tv_frage_nr);
         tv_frage = (TextView) findViewById(R.id.tv_frage);
