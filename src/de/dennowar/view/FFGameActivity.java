@@ -65,7 +65,7 @@ public class FFGameActivity extends Activity {
 			mAdapter.createDataBase();
 			mAdapter.openDataBase();
 			
-			c = mAdapter.fetchQuestions(1);
+			c = mAdapter.fetchQuestions(grad);
 			pos = getRandPos(c.getCount());
 			list.add(pos);
 			c.moveToPosition(pos);

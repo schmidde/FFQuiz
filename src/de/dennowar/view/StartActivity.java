@@ -13,7 +13,7 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 
 public class StartActivity extends Activity {
 	
-	private int grad;
+	private int grad = 1;
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
