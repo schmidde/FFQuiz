@@ -8,13 +8,29 @@
         android:id="@+id/tv_win"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/tv_win" />
+        android:padding="5dip"
+        android:text="@string/tv_win"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
 
-    <Button
-        android:id="@+id/btn_win"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_win" />
+        <Button
+            android:id="@+id/btn_win"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btn_win" />
+
+        <Button
+            android:id="@+id/btn_ende"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btn_ende" />
+        
+    </LinearLayout>
 
 </LinearLayout>

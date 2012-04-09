@@ -1,6 +1,7 @@
 package de.dennowar.view;
 
 import de.dennowar.R;
+import de.dennowar.plain.ActivityRegistry;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ public class StartActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start);
+        ActivityRegistry.register(this);
         
         Button btn = (Button) findViewById(R.id.btn_los);
         

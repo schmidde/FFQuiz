@@ -6,6 +6,7 @@ import java.util.List;
 
 import de.dennowar.R;
 import de.dennowar.db.DataBaseHelper;
+import de.dennowar.plain.ActivityRegistry;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -43,6 +44,7 @@ public class FFGameActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        ActivityRegistry.register(this);
         
         tv_frage_nr = (TextView) findViewById(R.id.tv_frage_nr);
         tv_frage = (TextView) findViewById(R.id.tv_frage);

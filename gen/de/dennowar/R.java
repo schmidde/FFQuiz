@@ -15,6 +15,7 @@ public final class R {
     }
     public static final class id {
         public static final int btn_antwort=0x7f050003;
+        public static final int btn_ende=0x7f050011;
         public static final int btn_los=0x7f05000e;
         public static final int btn_win=0x7f050010;
         public static final int rb_a=0x7f050004;
@@ -38,16 +39,16 @@ public final class R {
         public static final int win=0x7f030002;
     }
     public static final class string {
-        public static final int app_name=0x7f040001;
-        public static final int btn_antwort=0x7f040009;
-        public static final int btn_los=0x7f040008;
-        public static final int btn_win=0x7f04000a;
-        public static final int hello=0x7f040000;
-        public static final int rb_gf=0x7f040007;
-        public static final int rb_jf=0x7f040004;
-        public static final int rb_tf=0x7f040006;
-        public static final int rb_tm=0x7f040005;
-        public static final int tv_start=0x7f040002;
-        public static final int tv_win=0x7f040003;
+        public static final int app_name=0x7f040000;
+        public static final int btn_antwort=0x7f040008;
+        public static final int btn_ende=0x7f04000a;
+        public static final int btn_los=0x7f040007;
+        public static final int btn_win=0x7f040009;
+        public static final int rb_gf=0x7f040006;
+        public static final int rb_jf=0x7f040003;
+        public static final int rb_tf=0x7f040005;
+        public static final int rb_tm=0x7f040004;
+        public static final int tv_start=0x7f040001;
+        public static final int tv_win=0x7f040002;
     }
 }
