@@ -30,6 +30,7 @@ public class FFGameActivity extends Activity {
 	private String antwort = null;
 	private List<Integer> list = new ArrayList<Integer>();
 	
+	private TextView tv_frage_nr;
 	private TextView tv_frage;
 	private RadioButton rba;
 	private RadioButton rbb;
@@ -43,6 +44,7 @@ public class FFGameActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
+        tv_frage_nr = (TextView) findViewById(R.id.tv_frage_nr);
         tv_frage = (TextView) findViewById(R.id.tv_frage);
 		rba = (RadioButton) findViewById(R.id.rb_a);
 		rbb = (RadioButton) findViewById(R.id.rb_b);
@@ -120,7 +122,8 @@ public class FFGameActivity extends Activity {
     public void show(){
     	
     	rg_antwort.clearCheck();
-		tv_frage.setText(runde+". "+c.getString(c.getColumnIndex("frage")));
+    	tv_frage_nr.setText(runde+". Frage:");
+		tv_frage.setText(c.getString(c.getColumnIndex("frage")));
 		rba.setText(c.getString(c.getColumnIndex("a")));
 		rbb.setText(c.getString(c.getColumnIndex("b")));
 		rbc.setText(c.getString(c.getColumnIndex("c")));

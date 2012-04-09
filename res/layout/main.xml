@@ -1,50 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
 
     <TextView
-        android:id="@+id/tv_frage"
-        android:layout_width="match_parent"
+        android:id="@+id/tv_frage_nr"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Frage..."
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:padding="5dip"
+        android:text="1. Frage"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:layout_below="@+id/tv_frage_nr"
+        android:background="#77EEEEEE" />
+    
+    <TextView
+        android:id="@+id/tv_frage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rg_antwort"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:padding="5dip"
+        android:layout_below="@+id/tv_frage_nr"
+        android:text="Text"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:layout_below="@+id/tv_frage"
+        android:background="#77EEEEEE" />
 
     <RadioGroup
         android:id="@+id/rg_antwort"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_antwort"
+        android:padding="5dip"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true" >
 
         <RadioButton
             android:id="@+id/rb_a"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Antwort A" />
-        
-		<RadioButton
-		    android:id="@+id/rb_b"
-		    android:layout_width="match_parent"
-		    android:layout_height="wrap_content"
-		    android:text="Antwort B" />
-		
+            android:checked="true"
+            android:text="A" />
+
+        <RadioButton
+            android:id="@+id/rb_b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="B" />
+
         <RadioButton
             android:id="@+id/rb_c"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Antwort C" />
-
+            android:text="C" />
+        
         <RadioButton
             android:id="@+id/rb_d"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Antwort D" />
+            android:text="D" />
     </RadioGroup>
 
     <Button
         android:id="@+id/btn_antwort"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Antworten" />
-
-</LinearLayout>
+        android:layout_width="wrap_content"
+        android:layout_height="80dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/btn_antwort" />
+    
+</RelativeLayout>

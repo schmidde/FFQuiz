@@ -10,5 +10,6 @@
 	<string name="rb_tf">Truppführer</string>
 	<string name="rb_gf">Gruppenführer</string>
 	<string name="btn_los">LOS!</string>
+	<string name="btn_antwort">Antworten</string>
 	<string name="btn_win">Nochmal</string>
 </resources>
