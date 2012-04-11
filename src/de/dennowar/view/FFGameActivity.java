@@ -29,7 +29,7 @@ public class FFGameActivity extends Activity {
 	private DataBaseHelper mAdapter;
 	private Cursor c;
 	private int grad;
-	private String antwort = null;
+	private String antwort = "e";
 	private List<Integer> list = new ArrayList<Integer>();
 	
 	private TextView tv_frage_nr;
@@ -99,9 +99,14 @@ public class FFGameActivity extends Activity {
 				
 				@Override
 				public void onClick(View v) {
-					
+
 					if(runde <= 15){
-						if(isRight()){
+						if(!hasAnswer(antwort)){
+							CharSequence s = "Du hast keine Ahnung?\nDann rate!";
+							Toast t = Toast.makeText(ctx, s, Toast.LENGTH_SHORT);
+							t.show();
+						}
+						else if(isRight()){
 													
 							pos = nextPosition();
 							
@@ -134,7 +139,7 @@ public class FFGameActivity extends Activity {
 		rbb.setText(c.getString(c.getColumnIndex("b")));
 		rbc.setText(c.getString(c.getColumnIndex("c")));
 		rbd.setText(c.getString(c.getColumnIndex("d")));
-		antwort = null;
+		antwort = "e";
 		runde++;
 	}
     
@@ -143,8 +148,7 @@ public class FFGameActivity extends Activity {
     	if(c.getString(c.getColumnIndex("richtig")).equals(antwort)){
     		Log.i("isRight ", "Antwort: "+antwort+" Richtig: "+c.getString(c.getColumnIndex("richtig")));
     		res = true;
-    	}
-    	
+    	}  	
     	return res;
     }
     
@@ -163,6 +167,14 @@ public class FFGameActivity extends Activity {
     	while(isNotNew(position = getRandPos(c.getCount()))){}
     	Log.i("nextPosition: ", ""+position);
     	return position;
+    }
+    
+    private boolean hasAnswer(String answer){
+    	boolean res = false;
+    	if(!answer.equals("e")){
+    		res = true;
+    	}
+    	return res;
     }
     
     private boolean isNotNew(int position){
