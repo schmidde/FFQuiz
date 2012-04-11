@@ -31,19 +31,19 @@ public class StartActivity extends Activity {
 				
 				switch(checkedId){
 					case R.id.rb_jf:
-						grad = 0;
+						grad = 1;
 						break;
 					case R.id.rb_tm:
-						grad = 1;
+						grad = 2;
 						break;
 					case R.id.rb_tf:
 						grad = 2;
 						break;
 					case R.id.rb_gf:
-						grad = 3;
+						grad = 2;
 						break;
 					default:
-						grad = 1;
+						grad = 2;
 						break;
 				}
 			}
