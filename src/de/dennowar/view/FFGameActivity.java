@@ -101,6 +101,7 @@ public class FFGameActivity extends Activity {
 				public void onClick(View v) {
 
 					if(runde <= 15){
+						//keine Eingabe
 						if(!hasAnswer(antwort)){
 							CharSequence s = "Du hast keine Ahnung?\nDann rate!";
 							Toast t = Toast.makeText(ctx, s, Toast.LENGTH_SHORT);
@@ -115,9 +116,12 @@ public class FFGameActivity extends Activity {
 						}
 						//falsch Antwort
 						else{
-							CharSequence s = "Falsche Antwort! Versuchs nochmal.";
+							Intent i = new Intent(FFGameActivity.this, LoseActivity.class);
+			        		i.putExtra("de.dennowar.view.runde", runde);
+			        		startActivity(i);
+							/*CharSequence s = "Falsche Antwort! Versuchs nochmal.";
 							Toast t = Toast.makeText(ctx, s, Toast.LENGTH_SHORT);
-							t.show();
+							t.show();*/
 						}
 					}
 					//Spiel zu Ende

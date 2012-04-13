@@ -26,6 +26,10 @@
             android:name=".view.WinActivity"
             android:label="@string/app_name" >
         </activity>
+        <activity
+            android:name=".view.LoseActivity"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>

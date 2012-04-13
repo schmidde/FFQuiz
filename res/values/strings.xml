@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">FF-Quiz</string>
-    <string name="tv_start">Hallo Kamerad. Wähle einen Schwierigkeitsgrad und beweise dein Wissen. Viel Glück!</string>
+    <string name="app_name">FF-Quiz - www.feuerwehr-schenkenberg.de</string>
+    <string name="tv_start">Hallo Kamerad. \nWähle einen Schwierigkeitsgrad und zeige dein Wissen.</string>
     <string name="tv_win">Herzlichen Glückwunsch! Du hast alle Fragen richtig beantwortet. Weiter so!</string>
+    <string name="tv_lose">Ist das dein Ernst?</string>
 	<string name="rb_jf">Jugendfeuerwehr</string>
 	<string name="rb_tm">Truppmann</string>
 	<string name="rb_tf">Truppführer</string>
@@ -11,5 +12,6 @@
 	<string name="btn_los">LOS!</string>
 	<string name="btn_antwort">Antworten</string>
 	<string name="btn_win">Nochmal</string>
+	<string name="btn_lose">Kann ich besser</string>
 	<string name="btn_ende">Beenden</string>
 </resources>
