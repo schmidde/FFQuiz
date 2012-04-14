@@ -5,6 +5,7 @@ import de.dennowar.plain.ActivityRegistry;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -13,7 +14,7 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 
 public class StartActivity extends Activity {
 	
-	private int grad = 1;
+	private int grad = 2;
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,7 @@ public class StartActivity extends Activity {
         		Intent i = new Intent(StartActivity.this, FFGameActivity.class);
         		i.putExtra("de.dennowar.view.grad", grad);
         		startActivity(i);
+        		finish();
         	}
         });
     }

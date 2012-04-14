@@ -28,7 +28,7 @@ public class FFGameActivity extends Activity {
 	private Context ctx = this;
 	private DataBaseHelper mAdapter;
 	private Cursor c;
-	private int grad;
+	private int grad = 2;
 	private String antwort = "e";
 	private List<Integer> list = new ArrayList<Integer>();
 	
@@ -47,7 +47,7 @@ public class FFGameActivity extends Activity {
         setContentView(R.layout.main);
         ActivityRegistry.register(this);
         
-        grad = getIntent().getIntExtra("de.dennowar.view.grad", 1);
+        grad = getIntent().getIntExtra("de.dennowar.view.grad", 2);
         Log.i("Grad: ", ""+grad);
         
         tv_frage_nr = (TextView) findViewById(R.id.tv_frage_nr);
@@ -66,6 +66,7 @@ public class FFGameActivity extends Activity {
 			mAdapter.openDataBase();
 			
 			c = mAdapter.fetchQuestions(grad);
+			Log.i("Count: ", ""+c.getCount());
 			pos = getRandPos(c.getCount());
 			list.add(pos);
 			c.moveToPosition(pos);
@@ -119,6 +120,7 @@ public class FFGameActivity extends Activity {
 							Intent i = new Intent(FFGameActivity.this, LoseActivity.class);
 			        		i.putExtra("de.dennowar.view.runde", runde);
 			        		startActivity(i);
+			        		finish();
 							/*CharSequence s = "Falsche Antwort! Versuchs nochmal.";
 							Toast t = Toast.makeText(ctx, s, Toast.LENGTH_SHORT);
 							t.show();*/

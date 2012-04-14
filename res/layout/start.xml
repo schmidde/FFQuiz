@@ -15,7 +15,6 @@
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dip"
-        android:layout_below="@+id/tv_frage_nr"
         android:background="#77EEEEEE" />
 
     <RadioGroup
@@ -53,7 +52,6 @@
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dip"
-        android:layout_below="@+id/tv_frage_nr"
         android:background="#77EEEEEE" />
     
     <Button

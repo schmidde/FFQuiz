@@ -11,7 +11,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:padding="5dip"
-        android:text="1. Frage"
+        android:text="@string/tv_frage_nr"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <View
@@ -29,7 +29,7 @@
         android:layout_alignParentRight="true"
         android:padding="5dip"
         android:layout_below="@+id/tv_frage_nr"
-        android:text="Text"
+        android:text="@string/tv_frage"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <View
