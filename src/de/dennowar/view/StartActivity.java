@@ -3,8 +3,12 @@ package de.dennowar.view;
 import de.dennowar.R;
 import de.dennowar.plain.ActivityRegistry;
 import android.app.Activity;
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,6 +19,7 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 public class StartActivity extends Activity {
 	
 	private int grad = 2;
+	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,5 +64,5 @@ public class StartActivity extends Activity {
         		finish();
         	}
         });
-    }
+    }    
 }
