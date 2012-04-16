@@ -2,8 +2,8 @@
 <resources>
 
     <string name="app_name">FF-Quiz</string>
-    <string name="tv_start">Schwierigkeitsgrad:</string>
-    <string name="tv_win">Herzlichen Glückwunsch! Du hast alle Fragen richtig beantwortet. Weiter so!</string>
+    <string name="tv_start">Schwierigkeitsgrad:\n</string>
+    <string name="tv_win">Herzlichen Glückwunsch!</string>
     <string name="tv_frage_nr">Keine Fragen vorhanden&#8230; Fehler!</string>
     <string name="tv_frage">Keine Fragen vorhanden&#8230; Fehler!</string>
     <string name="tv_lose">Ist das dein Ernst?</string>
