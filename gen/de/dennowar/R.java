@@ -13,30 +13,32 @@ public final class R {
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
         public static final int logo_b1000=0x7f020001;
-        public static final int win=0x7f020002;
+        public static final int lose=0x7f020002;
+        public static final int win=0x7f020003;
     }
     public static final class id {
-        public static final int btn_antwort=0x7f050007;
-        public static final int btn_ende=0x7f050003;
-        public static final int btn_los=0x7f050012;
-        public static final int btn_lose=0x7f050002;
-        public static final int btn_win=0x7f050014;
+        public static final int btn_antwort=0x7f050008;
+        public static final int btn_ende=0x7f050004;
+        public static final int btn_los=0x7f050013;
+        public static final int btn_lose=0x7f050003;
+        public static final int btn_win=0x7f050015;
         public static final int imageView1=0x7f050000;
-        public static final int rb_a=0x7f050008;
-        public static final int rb_b=0x7f050009;
-        public static final int rb_c=0x7f05000a;
-        public static final int rb_d=0x7f05000b;
-        public static final int rb_gf=0x7f050011;
-        public static final int rb_jf=0x7f05000e;
-        public static final int rb_tf=0x7f050010;
-        public static final int rb_tm=0x7f05000f;
-        public static final int rg_antwort=0x7f050006;
-        public static final int rg_start=0x7f05000d;
-        public static final int tv_frage=0x7f050005;
-        public static final int tv_frage_nr=0x7f050004;
+        public static final int ll=0x7f050002;
+        public static final int rb_a=0x7f050009;
+        public static final int rb_b=0x7f05000a;
+        public static final int rb_c=0x7f05000b;
+        public static final int rb_d=0x7f05000c;
+        public static final int rb_gf=0x7f050012;
+        public static final int rb_jf=0x7f05000f;
+        public static final int rb_tf=0x7f050011;
+        public static final int rb_tm=0x7f050010;
+        public static final int rg_antwort=0x7f050007;
+        public static final int rg_start=0x7f05000e;
+        public static final int tv_frage=0x7f050006;
+        public static final int tv_frage_nr=0x7f050005;
         public static final int tv_lose=0x7f050001;
-        public static final int tv_start=0x7f05000c;
-        public static final int tv_win=0x7f050013;
+        public static final int tv_start=0x7f05000d;
+        public static final int tv_win=0x7f050014;
     }
     public static final class layout {
         public static final int init=0x7f030000;
